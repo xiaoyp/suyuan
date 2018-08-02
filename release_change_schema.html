@@ -23,6 +23,9 @@
 <!-- Favicon -->
 <link rel="shortcut icon" href="assets/img/favicon.ico">
 
+<!--mystyle css	-->
+	
+<link rel="stylesheet" type="text/css" href="mystyle.css">
 
 	
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -754,15 +757,107 @@
         </div>
 		
 		<div class="panel" id="pchart1">
-            <div class="panel-heading">
+          <div class="panel-heading">
               <span class="panel-icon">
                 <i class="fa fa-pencil"></i>
               </span>
               <span class="panel-title">流转数据库表结构</span>
-            </div>
-            <div class="panel-body bg-light dark" id="schema-chart">
-            </div>
           </div>
+            <div class="panel-body bg-light dark" id="schema-chart">
+				<canvas id="canvas1" width="1000" height="800" style="border:thin;"></canvas>
+				<table width="100" border="1" id="table5">
+                <caption>
+                  major
+                </caption>
+                <tbody>
+                  <tr>
+                    <td>majorid</td>
+                  </tr>
+                  <tr>
+                    <td>majorname</td>
+                  </tr>
+                  <tr>
+                    <td>department</td>
+					</tr>
+                </tbody>
+              </table>
+				<table width="100" border="1" id="table4">
+                <caption>
+                  category
+                </caption>
+                <tbody>
+                  <tr>
+                    <td>catid</td>
+                  </tr>
+                  <tr>
+                    <td>catname</td>
+                  </tr>
+                  <tr>
+                    <td>num</td>
+					</tr>
+                </tbody>
+              </table>
+              <table width="100" border="1" id="table3">
+                <caption>
+                  book
+                </caption>
+                <tbody>
+                  <tr>
+                    <td>bookid</td>
+                  </tr>
+                  <tr>
+                    <td>bookname</td>
+                  </tr>
+                  <tr>
+                    <td>author</td>
+                  </tr>
+				  <tr>
+                    <td>price</td>
+                  </tr>
+					<tr>
+                    <td>catid</td>
+                  </tr>
+                </tbody>
+              </table>
+              <table width="100" border="1" id="table2">
+                <caption>
+                  borrow
+                </caption>
+                <tbody>
+                  <tr>
+                    <td>stuid</td>
+                  </tr>
+                  <tr>
+                    <td>bookid</td>
+                  </tr>
+                  <tr>
+                    <td>borrowdate</td>
+                  </tr>
+                </tbody>
+              </table>
+              <table width="100" border="1" id="table1">
+                <caption>
+                  student
+                </caption>
+                <tbody>
+                  <tr>
+                    <td>stuid</td>
+                  </tr>
+                  <tr>
+                    <td>stuname</td>
+                  </tr>
+                  <tr>
+                    <td>degree</td>
+                  </tr>
+                  <tr>
+                    <td>majorid</td>
+                  </tr>
+                </tbody>
+              </table>
+				
+            </div>
+            
+        </div>
 		  
 	 </div>
       
@@ -808,9 +903,15 @@
 <script src="assets/js/demo/demo.js"></script> 
 <script src="assets/js/main.js"></script> 
 
+<!--myjs-->
+<script src="myjs.js"></script> 
+	
 <!-- Widget Javascript --> 
 <script src="assets/js/demo/widgets.js"></script> 
 <script type="text/javascript">
+	
+
+	
     jQuery(document).ready(function () {
 
         "use strict";
