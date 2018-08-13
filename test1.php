@@ -16,7 +16,7 @@
 
     $servername="localhost";
     $username="root";//改成自己的mysql用户名
-    $password="123456";//改成自己的mysql密码
+    $password="199810123";//改成自己的mysql密码
     $dbname="test";//改成自己的数据库名字
 
     try{

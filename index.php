@@ -1108,7 +1108,7 @@
     header('Content-Disposition:attachment;filename="NodeInfo.csv"');
     header('Cache-Control:max-age=0');
     
-    $fp=fopen("tree/NodeInfo.csv","w");//php文件句柄，"tree/NodeInfo.csv"是文件路径
+    $fp=fopen("NodeInfo.csv","w");//php文件句柄，"tree/NodeInfo.csv"是文件路径
     fwrite($fp, chr(0xEF).chr(0xBB).chr(0xBF));
 
     $column_name=array('ID','FatherID','Level','EncryptKey');
@@ -1121,7 +1121,7 @@
 
     $servername="localhost";
     $username="root";//改成自己的mysql用户名
-    $password="123456";//改成自己的mysql密码
+    $password="199810123";//改成自己的mysql密码
     $dbname="test";//改成自己的数据库名字
 
     try{
