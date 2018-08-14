@@ -610,7 +610,7 @@
           <div class="media"> <a class="media-left" href="#"> <img src="assets/img/avatars/3.jpg" class="img-responsive"> </a>
             <div class="media-body">
               <div class="media-links"> <a href="#" class="sidebar-menu-toggle">用户菜单 -</a> 
-				  <a href="pages_login.php">退出系统</a> </div>
+				  <a href="pages_login.html">退出系统</a> </div>
               <div class="media-author">Michael Richards</div>
             </div>
           </div>
@@ -656,7 +656,7 @@
 						<span class="fa fa-desktop"></span>流转信息概览</a> 
 				</li>
             	<li>
-					<a href="release_source_confirm.php"> <span class="fa fa-columns"></span>确认发布源信息</a> 
+					<a href="release_choose_source.php"> <span class="fa fa-columns"></span>选择发布源</a> 
 				</li>
             	<li class="active"> 
 					<a href="release_change_schema.php"> <span class="fa fa-dot-circle-o"></span>更改表结构</a> 
@@ -672,23 +672,13 @@
 				<span class="caret"></span> 
 			</a>
             <ul class="nav sub-nav">
-            	<li> 
-					<a href="find_message.html"> 
-						<span class="glyphicon glyphicon-shopping-cart"></span> 流转信息概览 
-					</a> 
-				</li>
-            	<li> <a href="find_data.html"> <span class="glyphicon glyphicon-tags"></span>导入数据</a> </li>
+            	<li> <a href="find_data_import.php"> <span class="glyphicon glyphicon-tags"></span>导入数据</a> </li>
             	<li> <a href="find_result.html"> <span class="fa fa-money"></span>溯源</a> </li>
           	</ul>
         </li>
-        <li> 
-			<a class="accordion-toggle" href="#"> 
-				<span class="glyphicon glyphicon-check"></span> 
-				<span class="sidebar-title">用户信息</span> 
-				<span class="caret"></span> 
-			</a>
-            <ul class="nav sub-nav">
-            	<li> 
+        <li>
+          <ul class="nav sub-nav">
+           	  <li> 
 					<a href="admin_forms-elements.html"> 
 						<span class="glyphicon glyphicon-shopping-cart"></span>用户信息概览
 					</a> 
@@ -748,7 +738,15 @@
     <!-- End: Topbar --> 
     
     <!-- Begin: Content -->
-    <section id="content" class="table-layout animated fadeIn"> 
+    
+		<a class="accordion-toggle" href="#"> <span class="glyphicon glyphicon-check"></span> <span class="sidebar-title">用户信息</span> <span class="caret"></span> </a>
+		
+		
+      
+        
+     
+      
+        <section id="content" class="table-layout animated fadeIn"> 
       
       <!-- begin: .tray-center -->
       <div class="tray tray-center">
@@ -763,109 +761,19 @@
               </span>
               <span class="panel-title">流转数据库表结构</span>
           </div>
-            <div class="panel-body bg-light dark" id="schema-chart">
-				<canvas id="canvas1" width="8000" height="8000" style="border:thin;"></canvas>
-				<table width="100" border="1" id="table5">
-                <caption>
-                  major
-                </caption>
-                <tbody>
-                  <tr>
-                    <td>majorid</td>
-                  </tr>
-                  <tr>
-                    <td>majorname</td>
-                  </tr>
-                  <tr>
-                    <td>department</td>
-					</tr>
-                </tbody>
-              </table>
-				<table width="100" border="1" id="table4">
-                <caption>
-                  category
-                </caption>
-                <tbody>
-                  <tr>
-                    <td>catid</td>
-                  </tr>
-                  <tr>
-                    <td>catname</td>
-                  </tr>
-                  <tr>
-                    <td>num</td>
-					</tr>
-                </tbody>
-              </table>
-              <table width="100" border="1" id="table3">
-                <caption>
-                  book
-                </caption>
-                <tbody>
-                  <tr>
-                    <td>bookid</td>
-                  </tr>
-                  <tr>
-                    <td>bookname</td>
-                  </tr>
-                  <tr>
-                    <td>author</td>
-                  </tr>
-				  <tr>
-                    <td>price</td>
-                  </tr>
-					<tr>
-                    <td>catid</td>
-                  </tr>
-                </tbody>
-              </table>
-              <table width="100" border="1" id="table2">
-                <caption>
-                  borrow
-                </caption>
-                <tbody>
-                  <tr>
-                    <td>stuid</td>
-                  </tr>
-                  <tr>
-                    <td>bookid</td>
-                  </tr>
-                  <tr>
-                    <td>borrowdate</td>
-                  </tr>
-                </tbody>
-              </table>
-              <table width="100" border="1" id="table1">
-                <caption>
-                  student
-                </caption>
-                <tbody>
-                  <tr>
-                    <td>stuid</td>
-                  </tr>
-                  <tr>
-                    <td>stuname</td>
-                  </tr>
-                  <tr>
-                    <td>degree</td>
-                  </tr>
-                  <tr>
-                    <td>majorid</td>
-                  </tr>
-                </tbody>
-              </table>
-				
-            </div>
             
-        </div>
-		  
+		  <img src="1.PNG" width="1000" height="300" usemap="#Map" align="left">
+        <map name="Map">
+          <area shape="poly" coords="157,140,256,196,249,206,152,148" href="release_choose_target.php">
+          <area shape="poly" coords="358,140,457,140,459,149,358,146" href="release_choose_target.php">
+          <area shape="poly" coords="561,166,658,143,660,149" href="release_choose_target.php">
+          <area shape="poly" coords="761,226,863,140,864,151" href="release_choose_target.php">
+        </map>
 	 </div>
       
       <!-- end: .tray-center --> 
       
     </section>
-    <!-- End: Content --> 
-    
     <!-- Begin: Page Footer -->
     <footer id="content-footer" class="affix">
       <div class="row">

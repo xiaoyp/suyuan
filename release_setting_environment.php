@@ -659,12 +659,7 @@
 				<span class="caret"></span> 
 			</a>
             <ul class="nav sub-nav">
-            	<li> 
-					<a href="find_message.html"> 
-						<span class="glyphicon glyphicon-shopping-cart"></span> 流转信息概览 
-					</a> 
-				</li>
-            	<li> <a href="find_data.html"> <span class="glyphicon glyphicon-tags"></span>导入数据</a> </li>
+            	<li> <a href="find_data_import.php"> <span class="glyphicon glyphicon-tags"></span>导入数据</a> </li>
             	<li> <a href="find_result.html"> <span class="fa fa-money"></span>溯源</a> </li>
           	</ul>
         </li>

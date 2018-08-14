@@ -10,11 +10,44 @@ d3.csv("NodeInfo.csv",function(error,csvdata){
  else
  {
   console.log(csvdata);
+// var json = [
+//   {
+//   "name": "Top Level",
+//   "parent": "null",
+//   "children": [
+//     {
+//       "name": "Level 2: A",
+//       "parent": "Top Level",
+//       "children": [
+//         {
+//           "name": "Son of A",
+//           "parent": "Level 2: A"
+//         },
+//         {
+//           "name": "Daughter of A",
+//           "parent": "Level 2: A"
+//         }
+//       ]
+//     },
+//     {
+//       "name": "Level 2: B",
+//       "parent": "Top Level",
+//     "children": [
+//         {
+//           "name": "Son of B",
+//           "parent": "Level 2: B"
+//         },
+//         {
+//           "name": "Daughters of B",
+//           "parent": "Level 2: B"
+//         }
+//       ]
+//     }
+//   ]
+// }
+// ];
 
-
-
-
-
+//——————————————————————————————————————————————————zzy-180812
 //下面要把csvdata里的东西搞出来放到json数组里
 //开始搞
 
@@ -30,45 +63,57 @@ function data2treeDG(datas, dataArray) {
       var CATL_FatherID = data.FatherID;
                 if(CATL_FatherID == CATL_ID) {//判断是否为儿子节点
                   var CATL_IDE = data.ID;
+                  var CATL_EncryptKey = data.EncryptKey;
+                  var CATL_CompanyName = data.CompanyName;
+                  var CATL_Reference = data.Reference;
                   var objTemp = {
                     "name": CATL_IDE,
-                    "parent": CATL_FatherID
+                    "encryptkey": CATL_EncryptKey,
+                    "parent": CATL_FatherID,
+                    "companyname": CATL_CompanyName,
+                    "reference": CATL_Reference
                   }
                   childrenArray.push(objTemp);
                 }
-            }
-            dataArrayIndex.children = childrenArray;
+              }
+              dataArrayIndex.children = childrenArray;
             if(childrenArray.length > 0) {//有儿子节点则递归
               data2treeDG(datas, childrenArray);
             }
-        }
-        return dataArray;
-    }
-
-
-    function data2tree(datas) {
-      var dataArray = [];
-      datas.forEach(function(data) {
-        var CATL_FatherID = data.FatherID;
-        if(CATL_FatherID == '000') {
-          var CATL_ID = data.ID;
-          var objTemp = {
-            "name": CATL_ID,
-            "parent": CATL_FatherID
           }
-          dataArray.push(objTemp);
+          return dataArray;
         }
-      })
-      return data2treeDG(datas, dataArray);
-    }
 
 
-    var json = data2tree(csvdata);
-    console.log(json);
+        function data2tree(datas) {
+          var dataArray = [];
+          datas.forEach(function(data) {
+            var CATL_FatherID = data.FatherID;
+            if(CATL_FatherID == '000') {
+              var CATL_ID = data.ID;
+              var CATL_EncryptKey = data.EncryptKey;
+              var CATL_CompanyName = data.CompanyName;
+              var CATL_Reference = data.Reference;
+              var objTemp = {
+                "name": CATL_ID,
+                "parent": CATL_FatherID,
+                "encryptkey": CATL_EncryptKey,
+                "companyname": CATL_CompanyName,
+                "reference": CATL_Reference
+              }
+              dataArray.push(objTemp);
+            }
+          })
+          return data2treeDG(datas, dataArray);
+        }
 
- 
+
+        var json = data2tree(csvdata);
+        console.log(json);
+
+
 //搞完了
-
+//——————————————————————————————————————————————————zzy-180812
 
 
 
@@ -110,7 +155,6 @@ root.y0 = 0;
 //  }
 
 //  root.children.forEach(collapse);
-
 update(root);
 
 
@@ -129,7 +173,7 @@ function update(source) {
   var node = svg.selectAll("g.node")
   .data(nodes, function(d) { return d.id || (d.id = ++i); });
 
-  //                                                  wth-001
+  //————————————————————————————————————————————————————————————wth-001
 
   // Enter any new nodes at the parent's previous position.
   var nodeEnter = node.enter().append("g")
@@ -231,15 +275,18 @@ function click(d) {
   update(d);
 }
 
-//——————————————————————————————————————————————————wth-001
+//——————————————————————————————————————————————————wth-001 zzy-180812
 function dblclick(d) {
-  window.location.href='release_choose_source.php';
+  var ID = d.name;
+  var FatherID = d.parent.name;
+  var EncryptKey = d.encryptkey;
+  var CompanyName = d.companyname;
+  var Reference = d.reference;
+  url = "release_source_confirm.php?ID="+ID+"&FatherID="+FatherID+"&EncryptKey="+EncryptKey+"&CompanyName="+CompanyName+"&Reference="+Reference;//
+  window.location.href = url;
 }
-
-//                                                  wth-001
+//——————————————————————————————————————————————————wth-001 zzy-180812
 console.log(svg);
-
-
 }
 }
 );

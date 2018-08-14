@@ -646,8 +646,9 @@
         </li>
         <li> <a class="accordion-toggle" href="#"> <span class="glyphicon glyphicon-shopping-cart"></span> <span class="sidebar-title">数据溯源</span> <span class="caret"></span> </a>
           <ul class="nav sub-nav">
+            <li> <a href="find_data_import.php"> <span class="glyphicon glyphicon-tags"></span>导入数据</a> </li>
             <li> <a href="find_message.html"> <span class="glyphicon glyphicon-shopping-cart"></span> 流转信息概览 </a> </li>
-            <li> <a href="find_data.html"> <span class="glyphicon glyphicon-tags"></span>导入数据</a> </li>
+
             <li> <a href="find_result.html"> <span class="fa fa-money"></span>溯源</a> </li>
           </ul>
         </li>
@@ -1111,7 +1112,7 @@
     $fp=fopen("NodeInfo.csv","w");//php文件句柄，"tree/NodeInfo.csv"是文件路径
     fwrite($fp, chr(0xEF).chr(0xBB).chr(0xBF));
 
-    $column_name=array('ID','FatherID','Level','EncryptKey');
+    $column_name=array('ID','FatherID','Level','EncryptKey','CompanyName','Reference');
 
     foreach($column_name as $i=>$v){
         $column_name[$i]=iconv('utf-8','GB18030',$v);
